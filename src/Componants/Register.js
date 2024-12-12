@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import "./Register.css";
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const RegistrationForm = () => {
   const [phoneFocus, setPhoneFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -66,7 +68,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-50 to-purple-100">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br">
       <form
         className="w-full max-w-2xl p-8 bg-white rounded-lg shadow-2xl font-Inter"
         onSubmit={handleSubmit}
@@ -88,12 +90,12 @@ const RegistrationForm = () => {
               required
               onFocus={() => setFirstNameFocus(true)}
               onBlur={() => setFirstNameFocus(formData.firstName !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-800 ${
                 firstNameFocus || formData.firstName !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -110,12 +112,12 @@ const RegistrationForm = () => {
               required
               onFocus={() => setLastNameFocus(true)}
               onBlur={() => setLastNameFocus(formData.lastName !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 lastNameFocus || formData.lastName !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -132,12 +134,12 @@ const RegistrationForm = () => {
               required
               onFocus={() => setEmailFocus(true)}
               onBlur={() => setEmailFocus(formData.email !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 emailFocus || formData.email !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -154,12 +156,12 @@ const RegistrationForm = () => {
               required
               onFocus={() => setPhoneFocus(true)}
               onBlur={() => setPhoneFocus(formData.phone !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 phoneFocus || formData.phone !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -169,19 +171,24 @@ const RegistrationForm = () => {
 
           <label className="relative">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               name="password"
               value={formData.password}
               onChange={handleChange}
               required
               onFocus={() => setPasswordFocus(true)}
               onBlur={() => setPasswordFocus(formData.password !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
+
+          <i className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'} icon-password`}
+          onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+          style={{ cursor: 'pointer', marginLeft: '-25px' }}
+        ></i>
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 passwordFocus || formData.password !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -191,7 +198,7 @@ const RegistrationForm = () => {
 
           <label className="relative">
             <input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
@@ -200,12 +207,17 @@ const RegistrationForm = () => {
               onBlur={() =>
                 setConfirmPasswordFocus(formData.confirmPassword !== "")
               }
-              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
             />
+
+          <i className={`fa-solid ${showPassword ? 'fa-eye-slash' : 'fa-eye'} icon-password`}
+          onClick={() => setShowPassword(!showPassword)} // Toggle password visibility
+          style={{ cursor: 'pointer', marginLeft: '-25px' }}
+        ></i>
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 confirmPasswordFocus || formData.confirmPassword !== ""
-                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
             >
@@ -220,13 +232,14 @@ const RegistrationForm = () => {
         </div>
         <button
           type="submit"
-          className="w-full p-3 mt-6 text-lg font-semibold text-white transition duration-300 bg-pink-500 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg"
+          className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
+          style={{ background: 'linear-gradient(90deg, #007bff, #010f1f)' }}
         >
           Create Account
         </button>
         <p className="mt-4 text-sm text-center text-gray-600">
           Already have an account?{" "}
-          <Link to="/login" className="text-pink-500 hover:underline">
+          <Link to="/login" className="font-semibold text-red-500 text-blue-500 hover:underline">
             Login
           </Link>
         </p>

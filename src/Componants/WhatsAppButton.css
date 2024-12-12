@@ -1,0 +1,73 @@
+/* Container for the WhatsApp button */
+.whatsapp-chat-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Style for the input field */
+  .whatsapp-phone-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+    font-size: 14px;
+    width: 200px;
+  }
+  
+  /* Style for the WhatsApp button */
+  .whatsapp-button {
+    background-color: #25d366;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    transition: background-color 0.3s;
+  }
+  
+  .whatsapp-button:hover {
+    background-color: #128c7e;
+  }
+  
+  .whatsapp-button i {
+    font-size: 28px; /* Icon size */
+  }
+  
+  /* Responsive design for small screens */
+  @media (max-width: 768px) {
+    .whatsapp-chat-container {
+      bottom: 10px;
+      right: 10px;
+    }
+  
+    .whatsapp-phone-input {
+      display: none; /* Hide phone input field on smaller screens */
+    }
+  
+    .whatsapp-button {
+      padding: 15px;
+      font-size: 30px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .whatsapp-chat-container {
+      bottom: 5px;
+      right: 5px;
+    }
+  
+    .whatsapp-button {
+      padding: 12px;
+      font-size: 32px;
+    }
+  }
+  
