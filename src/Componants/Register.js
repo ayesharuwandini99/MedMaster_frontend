@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom"; // Import useNavigate for programmatic navigation
+import { useNavigate, Link } from "react-router-dom";
 
 const RegistrationForm = () => {
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -66,17 +66,19 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-pink-50 to-purple-100">
       <form
-        className="w-full max-w-2xl p-8 bg-white rounded-lg shadow-lg font-Inter"
+        className="w-full max-w-2xl p-8 bg-white rounded-lg shadow-2xl font-Inter"
         onSubmit={handleSubmit}
       >
-        <div className="flex justify-center mb-4">medmaster </div>
+        <div className="flex justify-center mb-4 text-3xl  text-blue-900 font-logo2 font-thin">
+          MedMaster
+        </div>
         <h2 className="items-start mb-6 text-2xl font-semibold text-gray-800 align-left">
-          Register
+          Create Your Account
         </h2>
 
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <label className="relative">
             <input
               type="text"
@@ -86,13 +88,13 @@ const RegistrationForm = () => {
               required
               onFocus={() => setFirstNameFocus(true)}
               onBlur={() => setFirstNameFocus(formData.firstName !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-800 ${
                 firstNameFocus || formData.firstName !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               First Name *
@@ -108,13 +110,13 @@ const RegistrationForm = () => {
               required
               onFocus={() => setLastNameFocus(true)}
               onBlur={() => setLastNameFocus(formData.lastName !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 lastNameFocus || formData.lastName !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               Last Name *
@@ -130,13 +132,13 @@ const RegistrationForm = () => {
               required
               onFocus={() => setEmailFocus(true)}
               onBlur={() => setEmailFocus(formData.email !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 emailFocus || formData.email !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               Email *
@@ -152,13 +154,13 @@ const RegistrationForm = () => {
               required
               onFocus={() => setPhoneFocus(true)}
               onBlur={() => setPhoneFocus(formData.phone !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 phoneFocus || formData.phone !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               Phone *
@@ -174,13 +176,13 @@ const RegistrationForm = () => {
               required
               onFocus={() => setPasswordFocus(true)}
               onBlur={() => setPasswordFocus(formData.password !== "")}
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 passwordFocus || formData.password !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               Password *
@@ -198,19 +200,19 @@ const RegistrationForm = () => {
               onBlur={() =>
                 setConfirmPasswordFocus(formData.confirmPassword !== "")
               }
-              className="h-[50px] w-full px-4 text-md text-gray-500 bg-white border-gray-300 border-[1px] rounded-[4px] outline-none focus:border-[#da3772] placeholder-opacity-0 transition duration-700"
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-pink-500 focus:ring-2 focus:ring-pink-400"
             />
             <span
-              className={`absolute px-2 text-base transition-all duration-300 ${
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
                 confirmPasswordFocus || formData.confirmPassword !== ""
-                  ? "text-xs text-gray-900 -top-2 left-2 bg-white"
-                  : "text-gray-500 top-3 left-6 bg-transparent"
+                  ? "text-xs text-pink-500 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
               }`}
             >
               Confirm Password *
             </span>
             {error && (
-              <p className="text-xs font-semibold text-left text-red-500">
+              <p className="mt-2 text-xs font-semibold text-left text-red-500">
                 {error}
               </p>
             )}
@@ -218,13 +220,13 @@ const RegistrationForm = () => {
         </div>
         <button
           type="submit"
-          className="p-3 mt-6 text-white transition duration-300 bg-[#da3772] rounded-lg hover:bg-pink-600"
+          className="w-full p-3 mt-6 text-lg font-semibold text-white transition duration-300 bg-pink-500 rounded-lg shadow-md hover:bg-pink-600 hover:shadow-lg"
         >
           Create Account
         </button>
-        <p className="items-center justify-center p-5 text-sm font-semibold text-center text-bold">
+        <p className="mt-4 text-sm text-center text-gray-600">
           Already have an account?{" "}
-          <Link to="/login" className="text-blue-500 hover:underline">
+          <Link to="/login" className="text-pink-500 hover:underline">
             Login
           </Link>
         </p>
