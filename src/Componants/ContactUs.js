@@ -20,7 +20,7 @@ function ContactUs() {
       <div className="contact-info">
         <h2>Our Contact Details</h2>
         <p><strong>Email:</strong> medmaster@pharmacare.com</p>
-        <p><strong>Phone:</strong> +1 234 567 890</p>
+        <p><strong>Phone:</strong> +94 745 567 890</p>
       </div>
       
     </div>

@@ -10,6 +10,8 @@ const RegistrationForm = () => {
     lastName: "",
     email: "",
     phone: "",
+    nic: "",
+    userRole: "",
     password: "",
     confirmPassword: "",
   });
@@ -19,6 +21,8 @@ const RegistrationForm = () => {
   const [lastNameFocus, setLastNameFocus] = useState(false);
   const [emailFocus, setEmailFocus] = useState(false);
   const [phoneFocus, setPhoneFocus] = useState(false);
+  const [nicFocus, setNicFocus] = useState(false);
+  const [roleFocus, setRoleFocus] = useState(false);
   const [passwordFocus, setPasswordFocus] = useState(false);
   const [confirmPasswordFocus, setConfirmPasswordFocus] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
@@ -32,6 +36,8 @@ const RegistrationForm = () => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError("The passwords do not match");
+    } else if (!formData.userRole) {
+      setError("Please select a user role.");
     } else {
       setError("");
       try {
@@ -47,6 +53,8 @@ const RegistrationForm = () => {
               lastName: formData.lastName,
               userId: formData.email,
               phoneNumber: formData.phone,
+              nic: formData.nic,
+              userRole: formData.userRole,
               password: formData.password,
             }),
           }
@@ -169,6 +177,59 @@ const RegistrationForm = () => {
             </span>
           </label>
 
+
+
+          <label className="relative">
+            <input
+              type="text"
+              name="nic"
+              value={formData.nic}
+              onChange={handleChange}
+              required
+              onFocus={() => setNicFocus(true)}
+              onBlur={() => setNicFocus(formData.nic !== "")}
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
+            />
+            <span
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
+                nicFocus || formData.nic !== ""
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
+              }`}
+            >
+              NIC *
+            </span>
+          </label>
+
+
+
+          <label className="relative">
+            <select
+              name="userRole"
+              value={formData.userRole}
+              onChange={handleChange}
+              required
+              onFocus={() => setRoleFocus(true)}
+              onBlur={() => setRoleFocus(formData.userRole !== "")}
+              className="h-[50px] w-full px-4 text-md text-gray-700 bg-white border border-gray-300 rounded-lg outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400"
+            >
+              <option value="" disabled hidden>
+              </option>
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="pharmacist">Pharmacist</option>
+            </select>
+            <span
+              className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
+                nicFocus || formData.nic !== ""
+                  ? "text-xs text-blue-800 -top-2 left-3 bg-white"
+                  : "text-gray-500 top-3 left-4"
+              }`}
+            >
+              User Role *
+            </span>
+          </label>
+
           <label className="relative">
             <input
               type={showPassword ? 'text' : 'password'}
@@ -229,7 +290,7 @@ const RegistrationForm = () => {
               </p>
             )}
           </label>
-        </div>
+        </div><br/>
         <button
           type="submit"
           className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full"
@@ -237,9 +298,9 @@ const RegistrationForm = () => {
         >
           Create Account
         </button>
-        <p className="mt-4 text-sm text-center text-gray-600">
+        <p className="mt-4 text-sm font-bold text-black text-center text-black-600">
           Already have an account?{" "}
-          <Link to="/login" className="font-semibold text-red-500 text-blue-500 hover:underline">
+          <Link to="/login" className="font-semibold text-blue-500 hover:underline">
             Login
           </Link>
         </p>

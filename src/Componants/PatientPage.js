@@ -203,10 +203,10 @@ function PatientPage() {
   const [isShopDropdownOpen, setIsShopDropdownOpen] = useState(false); // State to toggle shop dropdown
 
    const samplePharmacies = [
-    { id: 1, name: 'Pharmacy A', address: '123 Main St', contact: '123-456-7890', medicines: ['Aspirin', 'Paracetamol'] },
-    { id: 2, name: 'Pharmacy B', address: '456 Elm St', contact: '987-654-3210', medicines: ['Ibuprofen', 'Amoxicillin'] },
-    { id: 3, name: 'Pharmacy C', address: '789 Oak St', contact: '555-123-4567', medicines: ['Paracetamol', 'Vitamin C'] },
-    { id: 4, name: 'Pharmacy D', address: '321 Maple St', contact: '555-987-6543', medicines: ['Aspirin', 'Cough Syrup'] }
+    { id: 1, name: 'Walgreens', address: '123 Main St', contact: '123-456-7890', medicines: ['Aspirin', 'Panadol'] },
+    { id: 2, name: 'CVS Health', address: '456 Elm St', contact: '987-654-3210', medicines: ['Asprin', 'Panadol'] },
+    { id: 3, name: 'Health Mart', address: '789 Oak St', contact: '555-123-4567', medicines: ['Asprin', 'Panadol'] },
+    { id: 4, name: 'Apothecary', address: '321 Maple St', contact: '555-987-6543', medicines: ['Aspirin', 'Cough Syrup'] }
   ];
 
   const handleFileUpload = (e) => setPrescription(e.target.files[0]);

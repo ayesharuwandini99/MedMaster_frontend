@@ -40,7 +40,7 @@ function Login() {
       }
 
       localStorage.setItem("token", data.token);
-      navigate("/Patient");
+      navigate("/doctor");
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
@@ -122,7 +122,7 @@ function Login() {
 
           </div>
           <div className="mt-4 text-center">
-            <div className="inline-block text-sm font-bold text-black align-baseline hover:text-blue-700">
+            <div className="inline-block text-sm font-bold text-black align-baseline">
               Don't have an account?{" "}
               <span className="font-semibold text-blue-500">
                 <a href="/register">Create an account</a>
