@@ -2,6 +2,12 @@ import React from 'react';
 import './ContactUs.css';
 
 function ContactUs() {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Simulate sending a message
+    alert('Message sent successfully! We\'ll get back to you soon.');
+  };
+
   return (
     <div className="contact-container">
       <h1 className="contact-title">CONTACT US</h1>
@@ -10,19 +16,18 @@ function ContactUs() {
         directly.
       </p>
 
-      <div className="contact-form">
-        <input type="text" placeholder="Your Name" className="input-field" />
-        <input type="email" placeholder="Your Email" className="input-field" />
-        <textarea placeholder="Your Message" className="textarea-field" rows="5"></textarea>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <input type="text" placeholder="Your Name" className="input-field" required />
+        <input type="email" placeholder="Your Email" className="input-field" required />
+        <textarea placeholder="Your Message" className="textarea-field" rows="5" required></textarea>
         <button type="submit" className="submit-button">Send Message</button>
-      </div>
+      </form>
 
       <div className="contact-info">
         <h2>Our Contact Details</h2>
         <p><strong>Email:</strong> medmaster@pharmacare.com</p>
         <p><strong>Phone:</strong> +94 745 567 890</p>
       </div>
-      
     </div>
   );
 }

@@ -8,6 +8,7 @@ function Login() {
   const [emailValue, setEmailValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [role, setRole] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -31,6 +32,7 @@ function Login() {
         body: JSON.stringify({
           userId: emailValue,
           password: passwordValue,
+          role, 
         }),
       });
 
@@ -40,7 +42,19 @@ function Login() {
       }
 
       localStorage.setItem("token", data.token);
-      navigate("/doctor");
+      switch (role) {
+        case "patient":
+          navigate("/patient");
+          break;
+        case "doctor":
+          navigate("/doctor");
+          break;
+        case "pharmacist":
+          navigate("/pharmacist");
+          break;
+        default:
+          throw new Error("Invalid role. Please try again.");
+      }
     } catch (err) {
       setError(err.message || "An error occurred. Please try again.");
     } finally {
@@ -110,6 +124,20 @@ function Login() {
             </label>
           </div>
           <br />
+
+          <div className="flex items-center justify-center mb-4">
+            <select
+              className="h-[50px] w-96 px-6 text-xl text-gray-700 bg-white border-black border-[1px] rounded-[4px] border-opacity-50 outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-400 placeholder-red-500 placeholder-opacity-0 transition duration-700"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+            >
+              <option value="patient">Select Role</option>
+              <option value="patient">Patient</option>
+              <option value="doctor">Doctor</option>
+              <option value="pharmacist">Pharmacist</option>
+            </select>
+          </div>
+
           <div className="flex justify-between">
           <button
   type="submit"

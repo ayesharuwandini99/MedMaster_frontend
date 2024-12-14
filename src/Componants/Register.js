@@ -221,7 +221,7 @@ const RegistrationForm = () => {
             </select>
             <span
               className={`absolute px-2 text-sm font-semibold transition-all duration-300 ${
-                nicFocus || formData.nic !== ""
+                roleFocus || formData.nic !== ""
                   ? "text-xs text-blue-800 -top-2 left-3 bg-white"
                   : "text-gray-500 top-3 left-4"
               }`}
