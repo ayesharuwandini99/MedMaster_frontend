@@ -6,7 +6,8 @@ module.exports = {
       fontFamily: {
         logo1: ["Righteous", "serif"],
         logo2: ["Pacifico", "cursive"],
-
+        font1: ["Lexend", "sans-serif"],
+        font2: ["Poppins", "serif"],
       },
     },
   },
